@@ -17,7 +17,6 @@ namespace AddressBookLINQ
             bool check = true;
             while (check == true)
             {
-                Console.WriteLine("Welcome To AddressBook Linq");
                 Console.WriteLine("Enter Your Choice");
                 Console.WriteLine("1 Display");
                 Console.WriteLine("2 Add Contact");
@@ -25,7 +24,9 @@ namespace AddressBookLINQ
                 Console.WriteLine("4 Delete Contact");
                 Console.WriteLine("5 Get Person Belongings By Giving State");
                 Console.WriteLine("6 Get Person Belongings By Giving City");
-                Console.WriteLine("7 Exit");
+                Console.WriteLine("7 Get Person Count By Giving State");
+                Console.WriteLine("8 Get Person Count By Giving City");
+                Console.WriteLine("9 Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -88,6 +89,16 @@ namespace AddressBookLINQ
                         addressBookRepo.RetrievePersonDataByUsingCity(contact);
                         break;
                     case 7:
+                        Console.WriteLine("Enter State: ");
+                        contact.State = Console.ReadLine();
+                        addressBookRepo.RetrieveCountByState(contact);
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter City: ");
+                        contact.City = Console.ReadLine();
+                        addressBookRepo.RetrieveCountByCity(contact);
+                        break;
+                    case 9:
                         return;
                 }
             }
