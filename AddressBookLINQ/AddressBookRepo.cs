@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookLINQ
@@ -43,6 +44,7 @@ namespace AddressBookLINQ
         {
             foreach(var table in dataTable.AsEnumerable())
             {
+                Console.WriteLine("----------------------------------------------");
                 Console.WriteLine("FirstName:- "+table.Field<String>("FirstName"));
                 Console.WriteLine("LastName:- " + table.Field<String>("LastName"));
                 Console.WriteLine("Address:- " + table.Field<String>("Address"));
@@ -51,6 +53,39 @@ namespace AddressBookLINQ
                 Console.WriteLine("ZipCode:- " + table.Field<String>("ZipCode"));
                 Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
                 Console.WriteLine("Email:- " + table.Field<String>("Email"));
+                Console.WriteLine("---------------------------------------------");
+            }
+        }
+
+        public void AddContact(Contact contact)
+        {
+            dataTable.Rows.Add(contact.FirstName, contact.LastName,contact.Address,contact.City,contact.State,
+                contact.ZipCode,contact.PhoneNumber,contact.Email);
+            Console.WriteLine("Contact Added SuccesFull");
+        }
+
+        /// <summary>
+        /// Edits the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void EditContact(Contact contact)
+        {
+            /// linq query to Check exist or not
+            /// Returns first element of sequence
+            var recordedData = dataTable.AsEnumerable().Where(data => data.Field<string>("FirstName") == contact.FirstName).First();
+            if(recordedData != null)
+            {
+                recordedData.SetField("LastName", contact.LastName);
+                recordedData.SetField("Address", contact.Address);
+                recordedData.SetField("City", contact.City);
+                recordedData.SetField("State", contact.State);
+                recordedData.SetField("ZipCode", contact.ZipCode);
+                recordedData.SetField("PhoneNumber", contact.PhoneNumber);
+                recordedData.SetField("Email", contact.Email);
+            }
+            else
+            {
+                Console.WriteLine("No dataFound");
             }
         }
     }
