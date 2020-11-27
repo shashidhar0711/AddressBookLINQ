@@ -151,5 +151,47 @@ namespace AddressBookLINQ
                 Console.WriteLine("---------------------------------------------");
             }
         }
+
+        /// <summary>
+        /// Retrieves the count by city.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void RetrieveCountByCity(Contact contact)
+        {
+            var countData = dataTable.AsEnumerable()
+                            .GroupBy(city => city.Field<String>("City"))
+                            .Select(city => new
+                            {
+                            City = city.Key,
+                            Count = city.Count()
+                            });
+
+            foreach (var Item in countData)
+            {
+                Console.WriteLine("City: " + Item.City + " " + "Count: " + Item.Count);
+                break;
+            }
+        }
+
+        /// <summary>
+        /// Retrieves the state of the count by.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void RetrieveCountByState(Contact contact)
+        {
+            var countData = dataTable.AsEnumerable()
+                            .GroupBy(state => state.Field<String>("State"))
+                            .Select(state => new
+                            {
+                                state = state.Key,
+                                Count = state.Count()
+                            });
+
+            foreach (var Item in countData)
+            {
+                Console.WriteLine("City: " + Item.state + " " + "Count: " + Item.Count);
+                break;
+            }
+        }
     }
 }
