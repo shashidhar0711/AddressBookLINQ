@@ -40,6 +40,9 @@ namespace AddressBookLINQ
             dataTable.Rows.Add("Praveen", "Kumar", "Vivekanandha Nagar", "Malur", "Mumbai","563441", "8000112156", "praveen.pravi@gmail.com");
         }
 
+        /// <summary>
+        /// Gets all records in table.
+        /// </summary>
         public void GetAllRecordsInTable()
         {
             foreach(var table in dataTable.AsEnumerable())
@@ -57,6 +60,10 @@ namespace AddressBookLINQ
             }
         }
 
+        /// <summary>
+        /// Adds the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
         public void AddContact(Contact contact)
         {
             dataTable.Rows.Add(contact.FirstName, contact.LastName,contact.Address,contact.City,contact.State,
@@ -111,8 +118,8 @@ namespace AddressBookLINQ
         public void RetrievePersonDataByUsingState(Contact contact)
         {
             var selectedData = from dataTable in dataTable.AsEnumerable()
-                             .Where(dataTable => dataTable.Field<string>("State") == contact.State)
-                             select dataTable;
+                               .Where(dataTable => dataTable.Field<string>("State") == contact.State)
+                               select dataTable;
             foreach (var table in selectedData.AsEnumerable())
             {
                 Console.WriteLine("----------------------------------------------");
@@ -135,7 +142,7 @@ namespace AddressBookLINQ
         public void RetrievePersonDataByUsingCity(Contact contact)
         {
             var selectedData = from dataTable in dataTable.AsEnumerable()
-                             .Where(dataTable => dataTable.Field<string>("City") == contact.City)
+                               .Where(dataTable => dataTable.Field<string>("City") == contact.City)
                                select dataTable;
             foreach (var table in selectedData.AsEnumerable())
             {
@@ -162,8 +169,8 @@ namespace AddressBookLINQ
                             .GroupBy(city => city.Field<String>("City"))
                             .Select(city => new
                             {
-                            City = city.Key,
-                            Count = city.Count()
+                                City = city.Key,
+                                Count = city.Count()
                             });
 
             foreach (var Item in countData)
@@ -191,6 +198,32 @@ namespace AddressBookLINQ
             {
                 Console.WriteLine("City: " + Item.state + " " + "Count: " + Item.Count);
                 break;
+            }
+        }
+
+        /// <summary>
+        /// Sorts the person name alphabetically.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void SortPersonNameAlphabetically(Contact contact)
+        {
+            var sortData = from data in dataTable.AsEnumerable()
+                           .Where(city => city.Field<String>("City") == contact.City)
+                           .OrderBy(firstName => firstName.Field<String>("FirstName"))
+                           select data;
+
+            foreach (var table in sortData.AsEnumerable())
+            {
+                Console.WriteLine("----------------------------------------------");
+                Console.WriteLine("FirstName:- " + table.Field<String>("FirstName"));
+                Console.WriteLine("LastName:- " + table.Field<String>("LastName"));
+                Console.WriteLine("Address:- " + table.Field<String>("Address"));
+                Console.WriteLine("City:- " + table.Field<String>("City"));
+                Console.WriteLine("State:- " + table.Field<String>("State"));
+                Console.WriteLine("ZipCode:- " + table.Field<String>("ZipCode"));
+                Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
+                Console.WriteLine("Email:- " + table.Field<String>("Email"));
+                Console.WriteLine("---------------------------------------------");
             }
         }
     }
