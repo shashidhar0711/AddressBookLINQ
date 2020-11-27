@@ -24,7 +24,8 @@ namespace AddressBookLINQ
                 Console.WriteLine("3 Edit Existing Contact");
                 Console.WriteLine("4 Delete Contact");
                 Console.WriteLine("5 Get Person Belongings By Giving State");
-                Console.WriteLine("6 Exit");
+                Console.WriteLine("6 Get Person Belongings By Giving City");
+                Console.WriteLine("7 Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -82,6 +83,11 @@ namespace AddressBookLINQ
                         addressBookRepo.RetrievePersonDataByUsingState(contact);
                         break;
                     case 6:
+                        Console.WriteLine("Enter City: ");
+                        contact.City = Console.ReadLine();
+                        addressBookRepo.RetrievePersonDataByUsingCity(contact);
+                        break;
+                    case 7:
                         return;
                 }
             }

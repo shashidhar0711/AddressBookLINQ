@@ -127,5 +127,29 @@ namespace AddressBookLINQ
                 Console.WriteLine("---------------------------------------------");
             }
         }
+
+        /// <summary>
+        /// Retrieves the person data by using city.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void RetrievePersonDataByUsingCity(Contact contact)
+        {
+            var selectedData = from dataTable in dataTable.AsEnumerable()
+                             .Where(dataTable => dataTable.Field<string>("City") == contact.City)
+                               select dataTable;
+            foreach (var table in selectedData.AsEnumerable())
+            {
+                Console.WriteLine("----------------------------------------------");
+                Console.WriteLine("FirstName:- " + table.Field<String>("FirstName"));
+                Console.WriteLine("LastName:- " + table.Field<String>("LastName"));
+                Console.WriteLine("Address:- " + table.Field<String>("Address"));
+                Console.WriteLine("City:- " + table.Field<String>("City"));
+                Console.WriteLine("State:- " + table.Field<String>("State"));
+                Console.WriteLine("ZipCode:- " + table.Field<String>("ZipCode"));
+                Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
+                Console.WriteLine("Email:- " + table.Field<String>("Email"));
+                Console.WriteLine("---------------------------------------------");
+            }
+        }
     }
 }
