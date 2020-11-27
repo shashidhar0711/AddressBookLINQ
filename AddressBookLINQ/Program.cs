@@ -13,6 +13,7 @@ namespace AddressBookLINQ
             Console.WriteLine("Welocme To AddressBook Using Linq");
             AddressBookRepo addressBookRepo = new AddressBookRepo();
             addressBookRepo.CreateBookTable();
+            addressBookRepo.GetAllRecordsInTable();
         }
     }
 }
