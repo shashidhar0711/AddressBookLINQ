@@ -40,6 +40,9 @@ namespace AddressBookLINQ
             dataTable.Rows.Add("Praveen", "Kumar", "Vivekanandha Nagar", "Malur", "Mumbai","563441", "8000112156", "praveen.pravi@gmail.com");
         }
 
+        /// <summary>
+        /// Gets all records in table.
+        /// </summary>
         public void GetAllRecordsInTable()
         {
             foreach(var table in dataTable.AsEnumerable())
@@ -57,6 +60,10 @@ namespace AddressBookLINQ
             }
         }
 
+        /// <summary>
+        /// Adds the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
         public void AddContact(Contact contact)
         {
             dataTable.Rows.Add(contact.FirstName, contact.LastName,contact.Address,contact.City,contact.State,
