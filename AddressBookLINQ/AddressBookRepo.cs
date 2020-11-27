@@ -31,12 +31,27 @@ namespace AddressBookLINQ
 
             /// UC2
             /// Creating rows and inserting in column vice
-            dataTable.Rows.Add("Ravi","Kumar","Gowtham Nagar","Bangarpet","Karnataka","8073112156","shashidhar.sasic@gmail.com");
-            dataTable.Rows.Add("Lalith", "Kumar", "Vijay Nagar", "Bangarpet", "Karnataka", "8223112156", "lalith.lalu@gmail.com");
-            dataTable.Rows.Add("Mohan", "Kumar", "Shanthi Nagar", "Bangalore", "Tamilnadu", "9973112156", "mohanrah.mohan@gmail.com");
-            dataTable.Rows.Add("Kiran", "Kumar", "Ambedkar Nagar", "Kolar", "AndhraPradesh", "8073174156", "kiran.Kid@gmail.com");
-            dataTable.Rows.Add("Sridhar", "Kumar", "Amravathi Nagar", "Kgf", "Delhi", "8073114656", "sridhar.sri@gmail.com");
-            dataTable.Rows.Add("Praveen", "Kumar", "Vivekanandha Nagar", "Malur", "Mumbai", "8000112156", "praveen.pravi@gmail.com");
+            dataTable.Rows.Add("Ravi","Kumar","Gowtham Nagar","Bangarpet","Karnataka","563114","8073112156","shashidhar.sasic@gmail.com");
+            dataTable.Rows.Add("Lalith", "Kumar", "Vijay Nagar", "Bangarpet", "Karnataka","563122", "8223112156", "lalith.lalu@gmail.com");
+            dataTable.Rows.Add("Mohan", "Kumar", "Shanthi Nagar", "Bangalore", "Tamilnadu","560018", "9973112156", "mohanrah.mohan@gmail.com");
+            dataTable.Rows.Add("Kiran", "Kumar", "Ambedkar Nagar", "Kolar", "AndhraPradesh","561363", "8073174156", "kiran.Kid@gmail.com");
+            dataTable.Rows.Add("Sridhar", "Kumar", "Amravathi Nagar", "Kgf", "Delhi","560018", "8073114656", "sridhar.sri@gmail.com");
+            dataTable.Rows.Add("Praveen", "Kumar", "Vivekanandha Nagar", "Malur", "Mumbai","563441", "8000112156", "praveen.pravi@gmail.com");
+        }
+
+        public void GetAllRecordsInTable()
+        {
+            foreach(var table in dataTable.AsEnumerable())
+            {
+                Console.WriteLine("FirstName:- "+table.Field<String>("FirstName"));
+                Console.WriteLine("LastName:- " + table.Field<String>("LastName"));
+                Console.WriteLine("Address:- " + table.Field<String>("Address"));
+                Console.WriteLine("City:- " + table.Field<String>("City"));
+                Console.WriteLine("State:- " + table.Field<String>("State"));
+                Console.WriteLine("ZipCode:- " + table.Field<String>("ZipCode"));
+                Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
+                Console.WriteLine("Email:- " + table.Field<String>("Email"));
+            }
         }
     }
 }
