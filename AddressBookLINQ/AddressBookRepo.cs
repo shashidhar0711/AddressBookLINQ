@@ -29,15 +29,17 @@ namespace AddressBookLINQ
             dataTable.Columns.Add("ZipCode", typeof(string));
             dataTable.Columns.Add("PhoneNumber", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("BookName", typeof(string));
+            dataTable.Columns.Add("BookType", typeof(string));
 
             /// UC2
             /// Creating rows and inserting in column vice
-            dataTable.Rows.Add("Ravi","Kumar","Gowtham Nagar","Bangarpet","Karnataka","563114","8073112156","shashidhar.sasic@gmail.com");
-            dataTable.Rows.Add("Lalith", "Kumar", "Vijay Nagar", "Bangarpet", "Karnataka","563122", "8223112156", "lalith.lalu@gmail.com");
-            dataTable.Rows.Add("Mohan", "Kumar", "Shanthi Nagar", "Bangalore", "Tamilnadu","560018", "9973112156", "mohanrah.mohan@gmail.com");
-            dataTable.Rows.Add("Kiran", "Kumar", "Ambedkar Nagar", "Kolar", "AndhraPradesh","561363", "8073174156", "kiran.Kid@gmail.com");
-            dataTable.Rows.Add("Sridhar", "Kumar", "Amravathi Nagar", "Kgf", "Delhi","560018", "8073114656", "sridhar.sri@gmail.com");
-            dataTable.Rows.Add("Praveen", "Kumar", "Vivekanandha Nagar", "Malur", "Mumbai","563441", "8000112156", "praveen.pravi@gmail.com");
+            dataTable.Rows.Add("Ravi","Kumar","Gowtham Nagar","Bangarpet","Karnataka","563114","8073112156","shashidhar.sasic@gmail.com","CompanyBook","Professional");
+            dataTable.Rows.Add("Lalith", "Kumar", "Vijay Nagar", "Bangarpet", "Karnataka","563122", "8223112156", "lalith.lalu@gmail.com","FriendsBook","Friends");
+            dataTable.Rows.Add("Mohan", "Kumar", "Shanthi Nagar", "Bangalore", "Tamilnadu","560018", "9973112156", "mohanrah.mohan@gmail.com","FriendsBook","Friends");
+            dataTable.Rows.Add("Kiran", "Kumar", "Ambedkar Nagar", "Kolar", "AndhraPradesh","561363", "8073174156", "kiran.Kid@gmail.com","FamilyBook","Family");
+            dataTable.Rows.Add("Sridhar", "Kumar", "Amravathi Nagar", "Kgf", "Delhi","560018", "8073114656", "sridhar.sri@gmail.com","Family","Family");
+            dataTable.Rows.Add("Praveen", "Kumar", "Vivekanandha Nagar", "Malur", "Mumbai","563441", "8000112156", "praveen.pravi@gmail.com","FriendsBook","Friends");
         }
 
         /// <summary>
@@ -56,11 +58,14 @@ namespace AddressBookLINQ
                 Console.WriteLine("ZipCode:- " + table.Field<String>("ZipCode"));
                 Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
                 Console.WriteLine("Email:- " + table.Field<String>("Email"));
+                Console.WriteLine("BookName:-"+table.Field<String>("BookName"));
+                Console.WriteLine("BookType:-" + table.Field<String>("BookType"));
                 Console.WriteLine("---------------------------------------------");
             }
         }
 
         /// <summary>
+        /// UC3
         /// Adds the contact.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -72,6 +77,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC4
         /// Edits the contact.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -97,6 +103,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC5
         /// Deletes the contact.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -112,6 +119,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC6
         /// Retrieves the state of the person data by using.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -136,6 +144,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC6
         /// Retrieves the person data by using city.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -160,6 +169,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC7
         /// Retrieves the count by city.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -181,6 +191,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC7
         /// Retrieves the state of the count by.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -202,6 +213,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC8
         /// Sorts the person name alphabetically.
         /// </summary>
         /// <param name="contact">The contact.</param>
