@@ -173,7 +173,7 @@ namespace AddressBookLINQ
         /// Retrieves the count by city.
         /// </summary>
         /// <param name="contact">The contact.</param>
-        public void RetrieveCountByCity(Contact contact)
+        public void RetrieveCountByCity()
         {
             var countData = dataTable.AsEnumerable()
                             .GroupBy(city => city.Field<String>("City"))
@@ -195,7 +195,7 @@ namespace AddressBookLINQ
         /// Retrieves the state of the count by.
         /// </summary>
         /// <param name="contact">The contact.</param>
-        public void RetrieveCountByState(Contact contact)
+        public void RetrieveCountByState()
         {
             var countData = dataTable.AsEnumerable()
                             .GroupBy(state => state.Field<String>("State"))
@@ -236,6 +236,26 @@ namespace AddressBookLINQ
                 Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
                 Console.WriteLine("Email:- " + table.Field<String>("Email"));
                 Console.WriteLine("---------------------------------------------");
+            }
+        }
+
+        /// <summary>
+        /// UC10
+        /// Gets the type of the count by a book.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void GetCountByABookType()
+        {
+            var countData = dataTable.AsEnumerable()
+                .GroupBy(BookType => BookType.Field<String>("BookType"))
+                .Select(BookType => new
+                {
+                    BookType = BookType.Key,
+                    BookTypeCount = BookType.Count()
+                });
+            foreach (var list in countData)
+            {
+                Console.WriteLine("AddressBookType :" + list.BookType +" , "+ "Count :" + list.BookTypeCount);
             }
         }
     }
