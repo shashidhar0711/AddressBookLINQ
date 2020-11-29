@@ -238,18 +238,5 @@ namespace AddressBookLINQ
                 Console.WriteLine("---------------------------------------------");
             }
         }
-        /// <summary>
-        /// UC9
-        /// Adds the type of the address book name and book.
-        /// </summary>
-        /// <param name="contact">The contact.</param>
-        public void AddAddressBookNameAndBookType(Contact contact)
-        {
-            /// Creating  two Columns
-            dataTable.Columns.Add("BookName", typeof(string));
-            dataTable.Columns.Add("BookType", typeof(string));
-            /// Adding rows into columns vice
-            dataTable.Rows.Add(contact.BookName, contact.BookType);
-        }
     }
 }
