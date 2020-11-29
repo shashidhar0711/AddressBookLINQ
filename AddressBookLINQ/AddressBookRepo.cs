@@ -61,6 +61,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC3
         /// Adds the contact.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -72,6 +73,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC4
         /// Edits the contact.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -97,6 +99,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC5
         /// Deletes the contact.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -112,6 +115,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC6
         /// Retrieves the state of the person data by using.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -136,6 +140,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC6
         /// Retrieves the person data by using city.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -160,6 +165,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC7
         /// Retrieves the count by city.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -181,6 +187,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC7
         /// Retrieves the state of the count by.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -202,6 +209,7 @@ namespace AddressBookLINQ
         }
 
         /// <summary>
+        /// UC8
         /// Sorts the person name alphabetically.
         /// </summary>
         /// <param name="contact">The contact.</param>
@@ -225,6 +233,19 @@ namespace AddressBookLINQ
                 Console.WriteLine("Email:- " + table.Field<String>("Email"));
                 Console.WriteLine("---------------------------------------------");
             }
+        }
+        /// <summary>
+        /// UC9
+        /// Adds the type of the address book name and book.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        public void AddAddressBookNameAndBookType(Contact contact)
+        {
+            /// Creating  two Columns
+            dataTable.Columns.Add("BookName", typeof(string));
+            dataTable.Columns.Add("BookType", typeof(string));
+            /// Adding rows into columns vice
+            dataTable.Rows.Add(contact.BookName, contact.BookType);
         }
     }
 }
