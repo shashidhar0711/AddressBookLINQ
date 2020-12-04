@@ -261,40 +261,12 @@ namespace AddressBookLINQ
 
         /// <summary>
         /// UC11
-        /// Sorts the state of the person name alphabetically by giving.
+        /// Sorts the person name alphabeticall order.
         /// </summary>
         /// <param name="contact">The contact.</param>
-        public void SortPersonNameAlphabeticallyByGivingState(Contact contact)
+        public void SortPersonNameAlphabeticallOrder()
         {
             var sortData = from data in dataTable.AsEnumerable()
-                           .Where(state => state.Field<String>("State") == contact.State)
-                           .OrderBy(firstName => firstName.Field<String>("FirstName"))
-                           select data;
-
-            foreach (var table in sortData.AsEnumerable())
-            {
-                Console.WriteLine("----------------------------------------------");
-                Console.WriteLine("FirstName:- " + table.Field<String>("FirstName"));
-                Console.WriteLine("LastName:- " + table.Field<String>("LastName"));
-                Console.WriteLine("Address:- " + table.Field<String>("Address"));
-                Console.WriteLine("City:- " + table.Field<String>("City"));
-                Console.WriteLine("State:- " + table.Field<String>("State"));
-                Console.WriteLine("ZipCode:- " + table.Field<String>("ZipCode"));
-                Console.WriteLine("PhoneNumber:- " + table.Field<String>("PhoneNumber"));
-                Console.WriteLine("Email:- " + table.Field<String>("Email"));
-                Console.WriteLine("---------------------------------------------");
-            }
-        }
-
-        /// <summary>
-        /// UC11
-        /// Sorts the person name alphabetically by givingzip.
-        /// </summary>
-        /// <param name="contact">The contact.</param>
-        public void SortPersonNameAlphabeticallyByGivingiZip(Contact contact)
-        {
-            var sortData = from data in dataTable.AsEnumerable()
-                           .Where(ZipCode => ZipCode.Field<String>("ZipCode") == contact.ZipCode)
                            .OrderBy(firstName => firstName.Field<String>("FirstName"))
                            select data;
 
