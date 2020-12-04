@@ -28,7 +28,11 @@ namespace AddressBookLINQ
                 Console.WriteLine("8 Get Person Count By Giving City");
                 Console.WriteLine("9 Get Person sorted in Alphabetically Order By Giving City");
                 Console.WriteLine("10 Get Count by Book Type");
-                Console.WriteLine("11 Exit");
+                Console.WriteLine("11 Get Person sorted in Alphabetically Order");
+                Console.WriteLine("12 Get Sort Entries in Alphabetically Order By Giving City");
+                Console.WriteLine("13 Get Sort Entries in Alphabetically Order By Giving State");
+                Console.WriteLine("14 Get Sort Entries in Alphabetically Order By Giving ZipCode");
+                Console.WriteLine("15 Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -105,7 +109,28 @@ namespace AddressBookLINQ
                         addressBookRepo.GetCountByABookType();
                         break;
                     case 11:
+                        addressBookRepo.SortPersonNameAlphabeticallOrder();
+                        break;
+                    case 12:
+                        Console.WriteLine("Enter City: ");
+                        contact.City = Console.ReadLine();
+                        addressBookRepo.SortPersonNameAlphabeticallyByGivingCity(contact);
+                        break;
+                    case 13:
+                        Console.WriteLine("Enter State: ");
+                        contact.City = Console.ReadLine();
+                        addressBookRepo.SortPersonNameAlphabeticallyByGivingState(contact);
+                        break;
+                    case 14:
+                        Console.WriteLine("Enter ZiCode: ");
+                        contact.City = Console.ReadLine();
+                        addressBookRepo.SortPersonNameAlphabeticallyByGivingiZip(contact);
+                        break;
+                    case 15:
                         return;
+                    default:
+                        Console.WriteLine("Enter valid choice between 1 to 15");
+                        break;
                 }
             }
         }
